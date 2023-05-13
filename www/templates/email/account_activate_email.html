@@ -1,0 +1,25 @@
+{% load i18n staticfiles %}
+
+<p>{% trans "Nos complace que esté aquí." %} </p>
+{% if password %}
+    <p>{% trans "Se le ha creado un usuario." %}</p>
+    <p>{% trans "Para ingresar a la aplicación, puede hacerlo con los siguientes datos:" %}</p>
+    <p><b>Usuario</b>: {{ user_email }}</p>
+    <p><b>Contraseña</b>: {{ password }}</p>
+{% endif %}
+<p style="padding: 15px; margin-top: 5px;">
+    {% trans "Solo necesitamos validar su correo electrónico para continuar" %}:
+</p>
+<div style="; color:#5d5c5c; font-family:'Arial', serif; text-align: center; vertical-align: middle;">
+    <div style="font-family:'Arial', serif;font-size:14px; padding: 15px;
+         border-radius:20px;background:#3333cc;color:#3333cc;border:1px solid #3333cc ;
+        ">
+        <a href="{{ protocolo }}://{{ domain }}{{ activation_url }}"
+           target="_blank" type="button" title="Validar correo">
+            <img src="{% static "email/email-validated.ico" %}"
+                 style="width: 24px; vertical-align: middle" alt="">
+
+            <span style="color:#ffffff; font-size:20px; vertical-align: middle;font-weight: bold;">{% trans "Valide el correo electrónico" %}</span>
+        </a>
+    </div>
+</div>
